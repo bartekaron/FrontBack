@@ -1,0 +1,35 @@
+<h3>Galériák</h3>
+
+<p-listbox
+  [options]="galleries"
+  [filter]="true"
+  [(ngModel)]="selectedGallery"
+  optionLabel="name"
+  [style]="{ height: '500px' }"
+  [listStyle]="{'max-height': '500px'}"
+  (click)="selectGallery()"
+/>
+<br>
+<p-button label="Új galéria hozzáadása..." icon="pi pi-plus" (onClick)="showDialog()" />
+<br><br>
+<p-button label="Kiválasztott galéria törlése" severity="danger" icon="pi pi-trash"  *ngIf="selectedGallery" (onClick)="confirm($event)" />
+
+<!-- új galéria dialog ablak -->
+<p-dialog header="Új galéria hozzáadása" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <span class="p-text-secondary block mb-2">Add meg a geléria nevét:</span>
+
+  <div class="flex flex-column gap-2 mb-3">
+      <input pInputText id="username" class="flex-auto" autocomplete="off"  [(ngModel)]="newGallery"/>
+  </div>
+
+  <div class="flex justify-content-end gap-2">
+      <p-button label="Mégsem" severity="secondary" (onClick)="visible = false" />
+      <p-button label="Mentés" (onClick)="addGallery()"/>
+  </div>
+</p-dialog>
+
+<!-- törlés megerősítés dialog ablak-->
+<p-confirmDialog />
+
+<!-- üzenetek megjelenítése -->
+<p-toast />

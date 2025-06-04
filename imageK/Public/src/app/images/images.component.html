@@ -1,0 +1,43 @@
+<h3>{{gallerySubject.value?.name}}</h3>
+
+<div *ngIf="gallerySubject.value?.ID != null">
+
+  <div class="card flex justify-content-start">
+    <p-toast />
+    <label for="upload" class="m-3">Kép feltöltése: </label>
+    <p-fileUpload mode="basic" name="demo[]" chooseIcon="pi pi-upload" [customUpload]="true"
+      (uploadHandler)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]="10000000" accept="image/*"
+      [auto]="true" chooseLabel="Tallózás..." />
+  </div>
+
+  <h3>Feltöltött képek</h3>
+
+  <div class="card flex justify-content-center">
+    <div *ngIf="images" class="grid grid-cols-12 gap-3" style="max-width: 800px;">
+      <div *ngFor="let image of images; let index = index" class="col-span-4" key="index">
+        <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer; width:200px"
+          (click)="imageClick(index)" />
+            <button class="absolute m-2" (click)="deleteImage(image.id)" style="background: transparent; border: none; font-size: 1.5rem; cursor: pointer; position: absolute;">&times;</button>
+      </div>
+    </div>
+    <p-galleria
+      [value]="images"
+      [(visible)]="displayCustom"
+      [(activeIndex)]="activeIndex"
+      [responsiveOptions]="responsiveOptions"
+      [containerStyle]="{ 'max-width': '850px' }"
+      [numVisible]="7"
+      [circular]="true"
+      [fullScreen]="true"
+      [showItemNavigators]="true"
+      [showThumbnails]="false">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item let-i="index">
+      
+      </ng-template>
+    </p-galleria>
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+
+  <app-header></app-header>
+  <div class="main">
+    <app-gallery (selected)="selectingGallery($event)"></app-gallery>
+    <app-images [gallery]="selectedGallery"></app-images>
+  </div>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
+</div>
