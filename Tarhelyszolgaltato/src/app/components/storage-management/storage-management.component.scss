@@ -1,0 +1,29 @@
+/* Gomb körül lévő div középre igazítása és margin hozzáadása */
+.add-storage-container {
+    display: flex;
+    justify-content: center;  /* Középre igazítás vízszintesen */
+    margin-top: 20px;  /* Margin hozzáadása a gomb tetejéhez */
+  }
+  
+  /* Az általános gomb margója */
+  button {
+    margin-top: 10px;
+  }
+  
+  /* A dialogus input mezői közötti távolság beállítása */
+.p-inputtext, .p-inputnumber, .p-dropdown, .p-datepicker {
+    margin-top: 10px;  /* Különbség a mezők között */
+    margin-bottom: 10px;  /* Különbség a mezők között */
+  }
+  
+  /* Csökkentjük a dialógus footer részének padding-ját */
+p-footer {
+    padding-bottom: 10px; /* Csökkenti a lábléc alsó paddingját */
+  }
+  
+  /* A gombok közötti távolság finomítása */
+  p-footer button {
+    margin-top: 10px;
+    margin-bottom: 0px;  /* Eltávolítjuk az alsó margót */
+  }
+  

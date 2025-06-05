@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;  // Kisebb távolság a kártyák között
+    justify-content: flex-start;  // A kártyák balra igazítása
+  }
+  
+  .card {
+    width: calc(30% - 0.5rem);  // Kisebb kártyák, hogy több férjen el
+    box-sizing: border-box;
+  }
+  
+  p-card {
+    max-width: 350px;  // Kisebb maximális szélesség
+    width: 100%;
+  }

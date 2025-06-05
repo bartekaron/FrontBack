@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<p-table [value]="storages" [responsive]="true" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Név</th>
+      <th>Ár</th>
+      <th>Leírás</th>
+      <th>Akció</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-storage>
+    <tr>
+      <td>{{ storage.name }}</td>
+      <td>{{ storage.price }}</td>
+      <td>{{ storage.description }}</td>
+      <td>
+        <button pButton icon="pi pi-trash" (click)="deleteStorage(storage.id)" label="Törlés"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<div class="add-storage-container">
+  <button pButton label="Új tárhely" icon="pi pi-plus" (click)="showDialog()"></button>
+</div>
+
+<p-dialog [(visible)]="displayDialog" [modal]="true" [responsive]="true" [closable]="false">
+  <p-header>
+      Új tárhelycsomag hozzáadása    
+  </p-header>
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="name">Név</label>
+      <input id="name" [(ngModel)]="newStorage.name" pInputText />
+    </div>
+    <div class="p-field">
+      <label for="price">Ár</label>
+      <input id="price" [(ngModel)]="newStorage.price" type="number" pInputText />
+    </div>
+    <div class="p-field">
+      <label for="description">Leírás</label>
+      <input id="description" [(ngModel)]="newStorage.description" pInputText />
+    </div>
+    <p-footer>
+      <button pButton label="Mégsem" icon="pi pi-times" (click)="hideDialog()"></button>
+      <button pButton label="Mentés" icon="pi pi-check" (click)="addStorage()"></button>
+    </p-footer>
+  </div>
+</p-dialog>

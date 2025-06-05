@@ -1,0 +1,29 @@
+<div class="container" style="margin-bottom: 3%;">
+  <p-card *ngIf="user" header="Profilja" class="card">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="name">Név: </label>
+        <span>{{ user.name }}</span>
+      </div>
+      <div class="p-field">
+        <label for="email">Email: </label>
+        <span>{{ user.email }}</span>
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<div class="elofizetes">
+  <p-card *ngIf="subscription && storage" header="Előfizetés" class="card">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="storageName">Előfizetés: </label>
+        <span>{{ storage.name }}</span>
+      </div>
+      <div class="p-field">
+        <label for="storagePrice">Ár: </label>
+        <span>{{ '$' + storage.price }}</span>
+      </div>
+    </div>
+  </p-card>
+</div>

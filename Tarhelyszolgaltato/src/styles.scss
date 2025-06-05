@@ -1,0 +1,8 @@
+/* Betűtípus betöltése @font-face segítségével */
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter-roman.var.woff2') format('woff2');
+    font-weight: 400;  /* Ha szükséges, állíthatsz más súlyt is */
+    font-style: normal; /* Vagy 'italic', ha dőlt betűt használsz */
+  }
+  

@@ -1,0 +1,12 @@
+<div class="container">
+  <p-card *ngFor="let storage of storages" [header]="storage.name" class="card">
+    <ng-template pTemplate="subheader">
+      <span class="price">{{ storage.price | currency }}</span>
+    </ng-template>
+    <p>{{ storage.description }}</p>
+    <p-footer>
+      <button pButton label="Előfizetés" icon="pi pi-check" (click)="subscribeToPackage(storage.id)"></button>
+    </p-footer>
+  </p-card>
+</div>
+<p-toast></p-toast>
